@@ -1,0 +1,73 @@
+* {/*reset css*/
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 390px; /*Tiltænkt skærmstørrelse: iphone 14 = 390px*/
+    background-image: url('../assets/baggrund.png'); /* Sti til billedet */
+    background-color: black; 
+    background-position: center; /* Centrerer billedet */
+    background-repeat: no-repeat; /* Forhindrer gentagelse af billedet */
+    margin-inline: auto; /* Centrerer sitet, hvis det vises på en større skærm */
+}
+.page {
+    display: flex; /* Gør det til en Flexbox-container */
+    flex-direction: column; /* Arrangerer børnene lodret */
+    justify-content: flex-start; /* Placerer indholdet øverst */
+    align-items: center; /* Centrerer børnene vandret */
+    width: 80%;
+    max-width: 300px;
+    background: #EEEAE5;
+    padding: 20px;
+    min-height: 100vh; /* Sikrer at siden fylder hele højden af viewporten */
+    box-sizing: border-box;
+    margin: 40px auto; /* Kombinerer top/bund margin og centering */
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif; /* ikke den rigtige skrifttype endnu*/
+    margin-bottom: 10px; /*giver lidt luft under overskriften*/
+  }
+  
+  .info-grid {
+    display: grid; /* Aktiverer CSS Grid */
+    grid-template-columns: 1fr; /* Starter med én kolonne */
+    margin-top: 20px; /* Giver lidt luft mellem h1 og info-grid */
+}
+
+  .info-box  {
+    text-align: center; /* Centrerer teksten og billedet */
+    display: flex; /* Gør det til en Flexbox-container */
+    flex-direction: column; /* Arrangerer børnene lodret */
+    align-items: center; /* Centrerer børnene vandret */
+  }
+
+  .info-box p {
+    font-family: Montserrat, Helvetica, sans-serif;
+    font-size: 14px;
+    color: black;
+    font-weight: 300;
+}
+
+.info-box h2 {
+    font-family: Montserrat, Helvetica, sans-serif; /* ikke den rigtige skrifttype endnu*/
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    margin: 10px 0; /* Giver luft over og under overskriften */
+}
+
+  .info-box img {
+    display: block;
+    margin: auto;
+    margin: 0 auto 10px auto; /* Centrerer billedet og giver luft under det */
+    justify-content: center; /*centrerer ikonet*/
+    align-items: center;
+    height: 65px;
+    width: 100px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
