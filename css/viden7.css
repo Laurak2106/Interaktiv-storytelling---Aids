@@ -34,9 +34,14 @@ body{
   
   .info-grid {
     display: grid; /* Aktiverer CSS Grid */
-    grid-template-columns: 1fr; /* Starter med én kolonne */
+    grid-template-columns: 1fr 1fr; /* to kolonner */
     margin-top: 20px; /* Giver lidt luft mellem h1 og info-grid */
+    gap: 20px; /* Styrer både rækkeafstand og kolonneafstand */
+    margin-bottom: 20px; /* Giver lidt luft under grid'en */
 }
+  .info-box:first-child {
+    grid-column: 1 / -1; /* strækker sig over begge kolonner */
+  }
 
   .info-box  {
     text-align: center; /* Centrerer teksten og billedet */
@@ -53,7 +58,7 @@ body{
     margin-top: 5px;
 }
 
-.info-box h2 {
+.info-box h3 {
     font-family: Montserrat, Helvetica, sans-serif; /* ikke den rigtige skrifttype endnu*/
     font-size: 18px;
     color: black;
@@ -74,4 +79,78 @@ body{
 }
 .chart img {
     margin-top: 10px;
+}
+
+/* Container til alle kort */
+.card-container {
+  display: flex; /* Læg kortene på række */
+  gap: 30px;            
+  flex-wrap: wrap;   /* Gør at de hopper ned på næste linje, hvis der ikke er plads */
+  margin-top: 20px; /* Giver lidt luft over containeren */
+}
+.flip-card {
+  background-color: transparent; 
+  width: 250px;                  
+  height: 110px;                
+  perspective: 1000px; /* Afstand til "kameraet" → styrer 3D-effekten */
+}
+
+.flip-card-inner {
+  position: relative;            /* Gør det muligt at absolut-positionere front og back */
+  width: 100%;                   
+  height: 100%;                  
+  text-align: center;            
+  transition: transform 0.6s;    /* Giver en glidende effekt, når der roteres */
+  transform-style: preserve-3d;  /* Sørger for at børneelementerne gengives i 3D-rum */
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);    /* Når .flip-card har klassen "flipped",roteres indholdet 180 grader rundt om Y-aksen */                               
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;            /* Placeres oven på hinanden */
+  width: 100%;                   /* Dækker hele containeren */
+  height: 100%;                  /* Samme højde som containeren */
+  backface-visibility: hidden;   /* Skjuler bagsiden, når elementet roteres */
+  border-radius: 10px;           
+  padding: 45px;                 /* Indvendig afstand til indholdet */
+  box-sizing: border-box;        /* Padding tælles med i elementets samlede bredde/højde */
+}
+
+.flip-card-front {
+  background-color: black;  
+  color: #BF232D; 
+  display: flex;              /* Gør det muligt at lægge elementer ved siden af hinanden */
+  align-items: center;        /* Centrerer indholdet vertikalt */
+  justify-content: flex-start; 
+  position: relative;  /* Gør det muligt at absolut-positionere ikonet */
+  font-family: Montserrat, Helvetica, sans-serif;  /* ikke den rigtige skrifttype endnu*/ 
+  padding-left: 0;              
+}
+
+.flip-card-back {
+  background-color: white;       
+  color: black; 
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-size: 13px;  
+  text-align: center;         
+  transform: rotateY(180deg); /* Bagsiden vendes 180 grader,så den bliver "bagsiden" af kortet */
+}
+.flip-icon {
+  position: absolute;  
+  bottom: 5px;   /* afstand fra bunden */
+  right: 10px;    /* afstand fra højre */
+  width: 25px;    /* størrelse på ikonet */
+  height: auto;   
+  cursor: pointer; /* viser at ikonet kan klikkes */
+}
+
+.lukke-icon {
+    position: absolute;  
+    top: 5px;   /* afstand fra toppen */
+    right: 15px;    /* afstand fra højre */
+    width: 15px;    /* størrelse på ikonet */
+    margin-top: 10px;
+    cursor: pointer; /* viser at ikonet kan klikkes */
 }
